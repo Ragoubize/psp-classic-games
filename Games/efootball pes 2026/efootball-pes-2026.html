@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download eFootball PES 2026 for PSP/Mobile</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome (For Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        html, body { 
+            overflow-x: hidden;
+        }
+
+        body { 
+            background: #0b0b0b; 
+            color: #fff; 
+            line-height: 1.6; 
+        }
+
+        .container { 
+            width: 100%;
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+        }
+        
+        /* --- Navigation --- */
+        nav {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(17, 17, 17, 0.8); backdrop-filter: blur(10px);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 30px; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .logo { display: flex; align-items: center; font-size: 22px; font-weight: 700; text-decoration: none; color: #fff; }
+        .logo i { color: #f39c12; margin-right: 10px; font-size: 26px; }
+        .logo .psp { color: #3498db; }
+        .logo .classic { color: #2ecc71; margin: 0 5px; }
+        .logo .games { color: #e74c3c; }
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav ul li a { text-decoration: none; color: #fff; font-weight: 500; transition: 0.3s; position: relative; padding-bottom: 5px; }
+        nav ul li a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: #f39c12; transition: width 0.3s ease; }
+        nav ul li a:hover::after { width: 100%; }
+        .hamburger-menu { display: none; font-size: 24px; cursor: pointer; color: #fff; z-index: 1001; }
+
+        /* --- Game Hero Section --- */
+        .game-hero {
+            position: relative;
+            min-height: 90vh;
+            background: url('efoot-background.avif') no-repeat center center/cover; /* PES Background */
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+        .game-hero::before {
+            content: ''; position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(11,11,11,1) 15%, rgba(11,11,11,0.6) 100%);
+        }
+        .hero-content {
+            position: relative; z-index: 2;
+            display: flex; align-items: center; gap: 30px;
+        }
+        .game-icon img {
+            width: 180px; height: 180px;
+            border-radius: 20px; border: 3px solid #f39c12;
+            box-shadow: 0 5px 25px rgba(243, 156, 18, 0.3);
+        }
+        .game-title h1 {
+            font-size: 42px; font-weight: 700;
+            margin-bottom: 10px; line-height: 1.2;
+        }
+        .game-title p {
+            font-size: 19px; color: #ddd; max-width: 600px;
+        }
+        .download-buttons {
+            margin-top: 25px; display: flex;
+            gap: 15px; flex-wrap: wrap;
+        }
+        .btn-download {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 15px 30px; background-color: #f39c12; color: #111;
+            text-decoration: none; border-radius: 50px; font-weight: 600;
+            font-size: 16px; transition: all 0.3s ease;
+        }
+        .btn-download:hover {
+            background-color: #e67e22; transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+        }
+        .btn-download i { font-size: 22px; }
+        
+        /* --- Game Details Section --- */
+        .game-details { padding: 60px 0; }
+        .section-title {
+            font-size: 32px; margin-bottom: 30px;
+            text-align: left; position: relative; padding-bottom: 10px;
+        }
+        .section-title::after {
+            content: ''; position: absolute; bottom: 0;
+            left: 0; width: 60px; height: 4px;
+            background: #f39c12; border-radius: 2px;
+        }
+        .screenshots-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px; margin-bottom: 50px;
+        }
+        .screenshots-grid img {
+            width: 100%; border-radius: 12px;
+            border: 2px solid #333; transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .screenshots-grid img:hover { transform: scale(1.05); border-color: #f39c12; }
+
+        /* --- "Full Package" Section --- */
+        .full-package-section {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+        .full-package-section .section-title {
+            text-align: center;
+        }
+        .full-package-section .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .package-content p {
+            font-size: 18px;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+        .package-items {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        .package-items li {
+            background: #0b0b0b;
+            border-radius: 10px;
+            padding: 20px;
+            flex-basis: 220px;
+            border: 1px solid #333;
+        }
+        .package-items .icon {
+            font-size: 36px;
+            color: #f39c12;
+            margin-bottom: 15px;
+        }
+        .package-items h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        /* --- Footer --- */
+        footer { text-align: center; padding: 20px; background: #111; margin-top: 40px; border-top: 1px solid #333; }
+
+        /* --- Responsive Design --- */
+        @media(max-width: 768px) {
+            nav { padding: 15px 20px; }
+            .hamburger-menu { display: block; }
+            nav ul {
+                position: fixed; top: 0; left: -100%; width: 70%; height: 100vh;
+                background: #111; flex-direction: column; justify-content: center;
+                align-items: center; gap: 30px; transition: left 0.4s ease-in-out;
+            }
+            nav ul.active { left: 0; }
+            nav ul li a { font-size: 20px; }
+            .game-hero { min-height: 100vh; }
+            .hero-content { flex-direction: column; text-align: center; }
+            .game-icon img { width: 150px; height: 150px; }
+            .game-title h1 { font-size: 32px; }
+            .game-title p { font-size: 17px; }
+            .download-buttons { justify-content: center; }
+            .section-title { text-align: center; }
+            .section-title::after { left: 50%; transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="../../index.html" class="logo">
+        <i class="fas fa-gamepad"></i>
+        <span class="psp">PSP</span> <span class="classic">Classic</span> <span class="games">Games</span>
+    </a>
+    <ul id="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About</a></li>
+        <li><a href="../../contact.html">Contact Us</a></li>
+        <li><a href="../../privacy.html">Privacy Policy</a></li>
+    </ul>
+    <div class="hamburger-menu" id="hamburger">
+        <i class="fas fa-bars"></i>
+    </div>
+</nav>
+
+<main>
+    <section class="game-hero">
+        <div class="container hero-content">
+            <div class="game-icon">
+                <img src="efoot-logo.webp" alt="eFootball PES 2026 Icon"> <!-- PES Logo -->
+            </div>
+            <div class="game-title">
+                <h1>eFootball PES 2026</h1> <!-- PES Title -->
+                <p>Experience the thrill of the pitch right in your hands. Download the legendary football classic, eFootball PES 2026, for FREE! This download includes the full game optimized for Android & iOS, plus a simple installation guide.</p> <!-- PES Description -->
+                <div class="download-buttons">
+                    <a href="#" class="btn-download"><i class="fab fa-android"></i> Download for Android</a>
+                    <a href="#" class="btn-download"><i class="fab fa-apple"></i> Download for iOS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="game-details">
+        <div class="container">
+            <h2 class="section-title">Screenshots</h2>
+            <div class="screenshots-grid">
+                <img src="efoot-psp.jpg" alt="eFootball PES 2026 Gameplay 1">   <!-- PES Screenshot -->
+                <img src="efoot-psp1.jpg" alt="eFootball PES 2026 Gameplay 2"> <!-- PES Screenshot -->
+                <img src="efoot-psp2.jpg" alt="eFootball PES 2026 Artwork">  <!-- PES Screenshot -->
+            </div>
+
+            <!-- "Full Package" Section -->
+            <div class="full-package-section">
+                <h2 class="section-title">Everything You Need to Play</h2>
+                <div class="package-content">
+                    <p>Forget the hassle! We've bundled everything into one simple package. Get the full game, the best PSP emulator, and a complete step-by-step guide for free.</p>
+                    <ul class="package-items">
+                        <li>
+                            <div class="icon"><i class="fas fa-compact-disc"></i></div>
+                            <h3>Full Game File</h3>
+                            <p>The original PES 2026 (.ISO) file, ready to play.</p> <!-- PES Game File Info -->
+                        </li>
+                        <li>
+                            <div class="icon"><i class="fas fa-mobile-alt"></i></div>
+                            <h3>PSP Emulator</h3>
+                            <p>The best emulator for a smooth experience on your device.</p>
+                        </li>
+                        <li>
+                            <div class="icon"><i class="fab fa-youtube"></i></div>
+                            <h3>Video Tutorial</h3>
+                            <p>Step-by-step video for Android & iOS setup.</p>
+                        </li>
+                    </ul>
+                    <div class="download-buttons">
+                        <a href="#" class="btn-download"><i class="fab fa-android"></i> Download for Android</a>
+                        <a href="#" class="btn-download"><i class="fab fa-apple"></i> Download for iOS</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 PSP Classic Games. All Rights Reserved.</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = hamburger.querySelector('i');
+        if (navLinks.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+});
+</script>
+
+</body>
+</html>
